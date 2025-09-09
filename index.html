@@ -1,0 +1,76 @@
+export default function HomePage() {
+  return (
+    <div className="min-h-screen bg-gray-50 text-gray-800">
+      {/* Hero Section */}
+      <section className="text-center py-20 px-6 bg-gradient-to-r from-yellow-100 via-orange-50 to-yellow-100">
+        <h1 className="text-4xl md:text-6xl font-bold mb-4">
+          Securely Pass on Your Bitcoin to Family — in Just One Weekend
+        </h1>
+        <p className="text-lg md:text-xl max-w-3xl mx-auto mb-8">
+          Most Bitcoin is lost forever when owners don’t plan ahead. Don’t risk your family’s future — learn how to build a rock-solid inheritance plan without expensive services.
+        </p>
+        <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-6 py-3 rounded-2xl shadow-md">
+          Get Started Today
+        </button>
+      </section>
+
+      {/* Problem Section */}
+      <section className="py-16 px-6 max-w-6xl mx-auto">
+        <h2 className="text-3xl font-bold text-center mb-12">The Problem with Most Solutions</h2>
+        <div className="grid md:grid-cols-3 gap-10">
+          <div className="bg-white rounded-2xl p-6 shadow-md">
+            <h3 className="text-xl font-semibold mb-2">Doing Nothing</h3>
+            <p>If something happens to you, your Bitcoin is gone forever. Over <strong>1.57 million BTC</strong> already lost.</p>
+          </div>
+          <div className="bg-white rounded-2xl p-6 shadow-md">
+            <h3 className="text-xl font-semibold mb-2">Paying a Company</h3>
+            <p>Services like Casa or Unchained charge ongoing fees, require trust, and aren’t available everywhere.</p>
+          </div>
+          <div className="bg-white rounded-2xl p-6 shadow-md">
+            <h3 className="text-xl font-semibold mb-2">Winging It</h3>
+            <p>DIY plans often fail due to mistakes or family confusion. The risk of total loss is high.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Smart Alternative */}
+      <section className="py-16 px-6 bg-yellow-50">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6">A Self-Sufficient Bitcoin Inheritance Plan</h2>
+          <p className="text-lg mb-10">Learn a proven method in just one weekend.</p>
+          <ul className="space-y-4 text-left max-w-xl mx-auto">
+            <li className="flex items-start">
+              <span className="text-green-600 font-bold mr-3">✔</span>
+              <p><strong>Family-Tested:</strong> Simple enough for non-technical family members.</p>
+            </li>
+            <li className="flex items-start">
+              <span className="text-green-600 font-bold mr-3">✔</span>
+              <p><strong>Built for Longevity:</strong> Quarterly practice system keeps everyone prepared.</p>
+            </li>
+            <li className="flex items-start">
+              <span className="text-green-600 font-bold mr-3">✔</span>
+              <p><strong>Affordable:</strong> One-time setup. No ongoing fees, no middlemen.</p>
+            </li>
+          </ul>
+          <button className="mt-10 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-6 py-3 rounded-2xl shadow-md">
+            Learn the Weekend Plan
+          </button>
+        </div>
+      </section>
+
+      {/* Bottom Line Section */}
+      <section className="py-20 px-6 text-center max-w-4xl mx-auto">
+        <blockquote className="italic text-2xl font-medium mb-8">
+          “Your Bitcoin is only as secure as the plan you have in place. Don’t let it vanish because you didn’t prepare.”
+        </blockquote>
+        <h2 className="text-3xl font-bold mb-4">Secure Your Family’s Financial Future</h2>
+        <p className="text-lg mb-8">
+          For a small, one-time investment of your weekend, you can protect your Bitcoin — forever.
+        </p>
+        <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-6 py-3 rounded-2xl shadow-md">
+          Start Now
+        </button>
+      </section>
+    </div>
+  );
+}
