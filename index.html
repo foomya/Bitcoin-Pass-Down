@@ -1,76 +1,489 @@
-export default function HomePage() {
-  return (
-    <div className="min-h-screen bg-gray-50 text-gray-800">
-      {/* Hero Section */}
-      <section className="text-center py-20 px-6 bg-gradient-to-r from-yellow-100 via-orange-50 to-yellow-100">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">
-          Securely Pass on Your Bitcoin to Family — in Just One Weekend
-        </h1>
-        <p className="text-lg md:text-xl max-w-3xl mx-auto mb-8">
-          Most Bitcoin is lost forever when owners don’t plan ahead. Don’t risk your family’s future — learn how to build a rock-solid inheritance plan without expensive services.
-        </p>
-        <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-6 py-3 rounded-2xl shadow-md">
-          Get Started Today
-        </button>
-      </section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Family Planning - Secure Your Children's Future</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-      {/* Problem Section */}
-      <section className="py-16 px-6 max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-12">The Problem with Most Solutions</h2>
-        <div className="grid md:grid-cols-3 gap-10">
-          <div className="bg-white rounded-2xl p-6 shadow-md">
-            <h3 className="text-xl font-semibold mb-2">Doing Nothing</h3>
-            <p>If something happens to you, your Bitcoin is gone forever. Over <strong>1.57 million BTC</strong> already lost.</p>
-          </div>
-          <div className="bg-white rounded-2xl p-6 shadow-md">
-            <h3 className="text-xl font-semibold mb-2">Paying a Company</h3>
-            <p>Services like Casa or Unchained charge ongoing fees, require trust, and aren’t available everywhere.</p>
-          </div>
-          <div className="bg-white rounded-2xl p-6 shadow-md">
-            <h3 className="text-xl font-semibold mb-2">Winging It</h3>
-            <p>DIY plans often fail due to mistakes or family confusion. The risk of total loss is high.</p>
-          </div>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: #f8fffe;
+            padding: 20px 0;
+            border-bottom: 1px solid #e0f2f1;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #2e7d32;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #2e7d32;
+        }
+
+        .hero {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #e8f5e8 0%, #f1f8e9 100%);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8em;
+            font-weight: 700;
+            color: #1b5e20;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4em;
+            color: #388e3c;
+            margin-bottom: 30px;
+            font-weight: 400;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-description {
+            font-size: 1.1em;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+
+        .family-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #4caf50;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2.2em;
+            color: #2e7d32;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .problem-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            border: 2px solid #ffcdd2;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .problem-card::before {
+            content: "⚠️";
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: white;
+            padding: 0 10px;
+            font-size: 1.5em;
+        }
+
+        .problem-card h3 {
+            color: #d32f2f;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .problem-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .solution-section {
+            background: #f1f8e9;
+            border-radius: 20px;
+            padding: 50px;
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .solution-section::before {
+            content: "✨";
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #f1f8e9;
+            padding: 0 20px;
+            font-size: 2em;
+        }
+
+        .solution-section h2 {
+            color: #2e7d32;
+            font-size: 2.2em;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .solution-section p {
+            font-size: 1.2em;
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid #c8e6c9;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(46, 125, 50, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            display: block;
+            color: #4caf50;
+        }
+
+        .feature-card h3 {
+            color: #2e7d32;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .bottom-line-section {
+            background: linear-gradient(135deg, #2e7d32, #388e3c);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+
+        .bottom-line-section h2 {
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .bottom-line-section p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            line-height: 1.7;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background: #ffeb3b;
+            color: #2e7d32;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            margin: 20px 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 235, 59, 0.3);
+        }
+
+        .cta-button:hover {
+            background: #fff59d;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 235, 59, 0.4);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-secondary:hover {
+            background: white;
+            color: #2e7d32;
+        }
+
+        .stats-highlight {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #ffeb3b;
+            display: block;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            border-left: 5px solid #4caf50;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            color: #666;
+            font-weight: 600;
+        }
+
+        .disclaimer {
+            background: #f5f5f5;
+            padding: 30px;
+            border-radius: 12px;
+            font-size: 0.95em;
+            color: #666;
+            margin: 40px 0;
+            border-left: 4px solid #9e9e9e;
+        }
+
+        footer {
+            background: #2e7d32;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2em;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                gap: 20px;
+            }
+            
+            .solution-section {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Bitcoin Family Planning</div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#for-families">For Families</a></li>
+                        <li><a href="#get-started">Get Started</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </section>
+    </header>
 
-      {/* Smart Alternative */}
-      <section className="py-16 px-6 bg-yellow-50">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">A Self-Sufficient Bitcoin Inheritance Plan</h2>
-          <p className="text-lg mb-10">Learn a proven method in just one weekend.</p>
-          <ul className="space-y-4 text-left max-w-xl mx-auto">
-            <li className="flex items-start">
-              <span className="text-green-600 font-bold mr-3">✔</span>
-              <p><strong>Family-Tested:</strong> Simple enough for non-technical family members.</p>
-            </li>
-            <li className="flex items-start">
-              <span className="text-green-600 font-bold mr-3">✔</span>
-              <p><strong>Built for Longevity:</strong> Quarterly practice system keeps everyone prepared.</p>
-            </li>
-            <li className="flex items-start">
-              <span className="text-green-600 font-bold mr-3">✔</span>
-              <p><strong>Affordable:</strong> One-time setup. No ongoing fees, no middlemen.</p>
-            </li>
-          </ul>
-          <button className="mt-10 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-6 py-3 rounded-2xl shadow-md">
-            Learn the Weekend Plan
-          </button>
+    <section class="hero">
+        <div class="container">
+            <div class="family-icon">👨‍👩‍👧‍👦</div>
+            <h1>How to Securely Pass Your Bitcoin to Your Family in One Weekend</h1>
+            <p class="hero-subtitle">Protect Your Children's Financial Future</p>
+            <p class="hero-description">
+                If you own Bitcoin, you need a plan for your family to inherit it. Most people either do nothing and risk losing everything, or pay expensive companies to manage it for them. <strong>There's a better way.</strong>
+            </p>
         </div>
-      </section>
+    </section>
 
-      {/* Bottom Line Section */}
-      <section className="py-20 px-6 text-center max-w-4xl mx-auto">
-        <blockquote className="italic text-2xl font-medium mb-8">
-          “Your Bitcoin is only as secure as the plan you have in place. Don’t let it vanish because you didn’t prepare.”
-        </blockquote>
-        <h2 className="text-3xl font-bold mb-4">Secure Your Family’s Financial Future</h2>
-        <p className="text-lg mb-8">
-          For a small, one-time investment of your weekend, you can protect your Bitcoin — forever.
-        </p>
-        <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-6 py-3 rounded-2xl shadow-md">
-          Start Now
-        </button>
-      </section>
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Why Most Families Lose Their Bitcoin</h2>
+            
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <h3>Doing Nothing</h3>
+                    <p>The most common approach. If something happens to you, your Bitcoin is lost forever. An estimated <strong>1.57 million BTC</strong> has already been lost this way—that's over $100 billion in today's value.</p>
+                </div>
+
+                <div class="problem-card">
+                    <h3>Paying a Company</h3>
+                    <p>Services like Casa or Unchained Capital offer security, but they charge thousands in setup fees plus ongoing costs. You have to trust them with your family's inheritance, and they're not available everywhere.</p>
+                </div>
+
+                <div class="problem-card">
+                    <h3>"Wing It" Yourself</h3>
+                    <p>Trying to build your own plan without a proven method is risky. It's easy to make security mistakes, and your family might get confused and lose access when they need it most.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="solution-section">
+                <h2>The Smart Alternative: A Family-First Plan</h2>
+                <p>You can learn how to create a secure Bitcoin inheritance plan in just one weekend, without paying lawyers or ongoing fees. This approach gives you all the tools and knowledge you need to protect your family's future.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon">👨‍👩‍👧‍👦</span>
+                        <h3>Family-Tested</h3>
+                        <p>Designed to be simple enough for non-technical family members to follow, especially parents with young children.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <span class="feature-icon">🔄</span>
+                        <h3>Built for Longevity</h3>
+                        <p>A quarterly practice system ensures your family stays ready, and you stay in complete control of your Bitcoin.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <span class="feature-icon">💰</span>
+                        <h3>Affordable</h3>
+                        <p>Get professional-level security without the professional fees. One-time cost instead of ongoing payments.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <span class="feature-icon">🛡️</span>
+                        <h3>Secure & Private</h3>
+                        <p>No third parties involved. Your family controls the inheritance completely, with multiple backup systems.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <span class="feature-icon">📚</span>
+                        <h3>Complete Education</h3>
+                        <p>Learn the principles so you can adapt the plan as your family grows and technology changes.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <span class="feature-icon">⚡</span>
+                        <h3>Weekend Setup</h3>
+                        <p>Implementation takes just one focused weekend, then simple quarterly family check-ins maintain security.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bottom-line-section">
+        <div class="container">
+            <h2>🎯 Protect Your Family's Future</h2>
+            <p>Your Bitcoin is only as secure as the plan you have in place. Don't let your wealth disappear just because you didn't spend a single weekend learning how to pass it on.</p>
+            
+            <div class="stats-highlight">
+                <span class="stat-number">$100B+</span>
+                <p>Worth of Bitcoin already lost forever due to poor planning</p>
+            </div>
+
+            <p style="font-size: 1.4em; font-weight: 600; margin-bottom: 30px;">For a small, one-time investment, you can secure your family's financial future forever.</p>
+
+            <a href="#learn-more" class="cta-button">Protect My Family's Bitcoin</a>
+            <a href="#consultation" class="cta-button cta-secondary">Schedule Free Consultation</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="testimonial">
+            <p class="testimonial-text">"As a parent of two young kids, I was terrified that my Bitcoin would be lost if something happened to me. This system gave me peace of mind knowing my children will have access to their inheritance when they need it. The quarterly practice sessions have become a fun family learning time."</p>
+            <p class="testimonial-author">— Sarah M., Mother of 2, Bitcoin Holder Since 2019</p>
+        </div>
+
+        <div class="disclaimer">
+            <h4 style="margin-bottom: 15px; color: #333;">Important Information</h4>
+            <p><strong>Educational Content Only:</strong> This website provides educational materials about Bitcoin inheritance planning. All content is for learning purposes and does not constitute legal, financial, or tax advice. Always consult with qualified professionals familiar with your specific situation and jurisdiction before implementing any inheritance strategy.</p>
+        </div>
     </div>
-  );
-}
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Bitcoin Family Planning. Helping families secure their Bitcoin inheritance.</p>
+            <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.8;">Educational resources • Not financial advice • Consult professionals</p>
+        </div>
+    </footer>
+</body>
+</html>
